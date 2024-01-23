@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcycle - Forum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Forum-Clicked.css') }}">
+    <script src="/js/Forum-Clicked.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/src/img/Logo/NGOlogo.png" type="image/x-icon">
+
+</head>
+
+<body style="background-color: #F4F4F4;">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark navbar-expand-xl">
+    <div class="container">
+        <!-- LOGO & BRAND -->
+      <div class="d-flex flex-row align-items-center gap-2">
+        <img src="/src/img/Logo/NGOlogo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
+        <a class="navbar-brand" href="#">Upcycle</a>
+      </div>
+        <!-- TOGGLE BTN -->
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- SIDEBAR -->
+      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        
+        <!-- SIDEBAR - header -->
+        <div class="offcanvas-header text-white border-bottom">
+          <div class="d-flex flex-row align-items-center gap-2">
+            <img src="/src/img/Logo/NGOlogo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Upcycle</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <!-- SIDEBAR - body -->
+        <div class="offcanvas-body d-flex flex-column flex-xl-row p-4">
+          <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3 gap-1">
+            <li class="nav-item">
+              <a class="nav-link active " aria-current="page" href="#">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Start Recycling
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">View Post</a></li>
+                  <li>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Create New Post</a></li>
+                </ul>
+              </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Recent Post</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Community Forum</a>
+              </li>
+          </ul>
+          <!-- LOGIN & SIGN UP -->
+          <div class="d-flex justify-content-center flex-xl-row align-items-center gap-2">
+            <a href="login" class="login text-white text-decoration-none inner-border px-4 py-2"> Login</a>
+            <a href="signup" class="signup text-white text-decoration-none px-4 py-2">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="mt-5"></div>
+<!-- FORUM -->
+
+<div class="container d-flex justify-content-center">
+    <div class="forum-content row justify-content-center" style="background-color: white;">
+        <div class="row justify-content-center">
+            <div class="row user mt-3 d-flex align-items-center">
+                <!-- <div class="col-2 like-dislike">
+                    <div class="row text-center align-items-start">
+                        <p class="like">like</p>
+                        <p class="like-num">#</p>
+                        <p class="dislike">dislike</p>
+                    </div>
+                </div> -->
+                <!-- USER INFO -->
+                <div class="col-lg-1 col-2 d-flex justify-content-end">
+                    <img class="profile-img" src="/images/Ellipse 12.png" alt="">
+                </div>
+                
+                <div class="col-lg-8 col-sm-4 col-6">
+                    <div class="col">
+                        <div class="user-info row">
+                            <div class="col">
+                                <p class="h5 username">username</p>
+                                <p class="h6 post-date">posted date</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="forum" data-forum-id="7712">
+            <!-- TITLE -->
+            <div class="row">
+                <p class="h4 forum-title">{{topic.title}}</p>
+            </div>
+            <!-- IMG -->
+            <div class="row">
+                <div class="container d-flex justify-content-center" style="background-color: rgb(223, 223, 223); height: 450px;">
+                    <img class="forum-img" src="/images/card_placeholder_img.png" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <p class="h6 message mt-3 mb-3">{{topic.description}}</p>
+            </div>
+
+            <hr>
+            <!-- COUNT -->
+            <div class="forum-ratings-container row mb-3 d-flex">
+                <!-- <div class="col-1 d-flex justify-content-end">
+                    <p class="h6">#</p>
+                </div> -->
+                <div class="forum-rating forum-rating col-2 d-flex justify-content-start">
+                    <span class="forum-rating-button material-icons px-2"> thumb_up </span>
+                    <span class="forum-rating-count">0</span>
+                </div>
+                <!-- <div class="col-1 d-flex justify-content-end">
+                    <p class="h6">#</p>
+                </div> -->
+                <div class="forum-rating forum-rating col-2 d-flex justify-content-start">
+                    <span class="forum-rating-button material-icons px-2"> thumb_down </span>
+                    <span class="forum-rating-count">0</span>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<span class="br"></span> 
+<!-- ADD COMMENT -->
+<div class="container d-flex justify-content-center">
+    <div class="forum-content row justify-content-center px-4 py-2" style="background-color: white;">
+        <p class="h6 mt-2">Add Comment</p>
+        <form action="/topic/{{topic.id}}" method="post">
+            <div class="form-group">
+                <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+            </div>
+            <div class="col my-3 d-flex justify-content-end">
+                <button class="btn btn-primary" type="submit">Comment</button>
+            </div>
+            
+        </form>
+
+    </div>
+</div>
+
+<span class="br"></span>
+<!-- COMMENT -->
+<div class="container d-flex justify-content-center">
+    <div class="forum-content row px-4 py-2" style="background-color: white;">
+        <p class="h6 mt-2">Comments ({{comments|length}}) </p>
+        <hr>
+        <!-- USER INFO -->
+        {% for comment in comments %}
+        <div class="row d-flex">
+            <div class="col-lg-1 col-2 d-flex justify-content-end align-items-center">
+                <img class="comment-profile-img" src="/images/Ellipse 12.png" alt="">
+            </div>
+            <div class="col-lg-8 col-sm-4 col-6">
+                <div class="col">
+                    <div class="user-info row">
+                        <div class="col">
+                            <p class="h6 comment-username">username</p>
+                            <p class="h6 comment-post-date">posted date</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-2"></div>
+                <div class="col">
+                    <p class="comment">{{comment.text}}</p>
+                </div>
+            </div>
+        <!-- COUNT -->
+        <div class="forum-ratings-container row mb-3 d-flex" style="justify-content: end;">
+            <div class="col-lg-1 col-2"></div>
+            <div class="forum-rating forum-rating col-2 d-flex justify-content-end">
+                <span class="forum-rating-button material-icons px-2"> thumb_up </span>
+                <span class="forum-rating-count">0</span>
+            </div>
+            <!-- <div class="col-1 d-flex justify-content-end">
+                <p class="h6">#</p>
+            </div> -->
+            <div class="forum-rating forum-rating col-2 d-flex justify-content-end">
+                <span class="forum-rating-button material-icons px-2"> thumb_down </span>
+                <span class="forum-rating-count">0</span>
+            </div>
+        </div>
+        <hr>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="mb-5"></div>
+
+</body>
+</html>
